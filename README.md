@@ -1,5 +1,5 @@
 # Spotify-Wrapped
-This is a project that gives Spotify Wrapped (which is an extra option for premium accounts, but you don't need that with this project)
+This is a project about Spotify Wrapped (which is an extra option for premium accounts, but you don't need to be premium here)
 
 This project shows charts of top 5 of musics, artists and genres.
 
