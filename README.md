@@ -19,3 +19,9 @@ To use Spotify-Wrapped, users need to install two Python libraries:
 + **Pillow**: A Python imaging library used to generate the summary image. This library can be installed using `pip install pillow`.
 + **Numpy**: A Python library for numerical computing, providing powerful array and matrix operations for scientific computing tasks. This library can be installed using `pip install numpy`.
 + **Pandas**: A popular data analysis library for Python, providing powerful data structures and tools for working with structured data such as CSV files, SQL databases, and more. This library can be installed using `pip install pandas`.
+
+# Contributions
+Contributions to this project are welcome. If you find a bug or have an idea for a new feature, please create an issue or submit a pull request.
+
+# License
+This project is licensed under the MIT License. See the <a href="https://github.com/hosseinmh1/Spotify-Wrapped/blob/main/LICENSE">LICENSE</a> file for details.
