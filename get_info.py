@@ -53,7 +53,9 @@ def get_token(username):
                                                                     redirect_uri=redirect_uri)
     return token
 
-def wrapped(token,username):
+def wrapped(username):
+    token = get_token(username)
+
     if token:
         sp = spotipy.Spotify(auth=token)
         top_tracks_short = sp.current_user_top_tracks(limit=100, offset=0, time_range="medium_term")
@@ -196,3 +198,8 @@ def wrapped(token,username):
         gg = gg + 238
         
     img3.save('Spotify-Wrapped3.jpg')
+
+
+if __name__ == "__main__":
+    username = 'buv1vuw2rxppyefnqhx4aiaie'
+    wrapped(username)
