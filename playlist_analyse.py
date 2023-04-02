@@ -1,11 +1,15 @@
 import spotipy
+import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 from spotipy.oauth2 import SpotifyClientCredentials
 from keys import client_id, client_secret, redirect_uri
 
 
 def spotifyID(link):
+    # https://open.spotify.com/playlist/3zCK80pE2XepeThGHfwUEz?si=8c637f1e7fde427f
+    # https://open.spotify.com/playlist/5WwOvSn7sKdRFEFmmQV58W?si=a44bae5b88d94153
     link = link.replace("https://open.spotify.com/playlist/", "spotify:playlist:")
     return link[:-20]
 
@@ -75,3 +79,21 @@ def playlist_analyse(link):
 
     min_max_scaler = MinMaxScaler()
     music_feature.loc[:] = min_max_scaler.fit_transform(music_feature.loc[:])
+
+    fig = plt.figure(figsize=(12, 8))
+
+    categories = list(music_feature.columns)
+    N = len(categories)
+    value = list(music_feature.mean())
+    value += value[:1]
+    angles = [n / float(N) * 2 * np.pi for n in range(N)]
+    angles += angles[:1]
+    plt.polar(angles, value)
+    plt.fill(angles, value, alpha=0.3)
+
+    plt.title('Discover {} playlist of {}'.format(playlist, owner), size=35)
+
+    plt.xticks(angles[:-1], categories, size=15)
+    plt.yticks(color='grey', size=15)
+    plt.show()
+
