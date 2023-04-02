@@ -58,7 +58,7 @@ def wrapped(username):
 
     if token:
         sp = spotipy.Spotify(auth=token)
-        top_tracks_short = sp.current_user_top_tracks(limit=100, offset=0, time_range="medium_term")
+        top_tracks_short = sp.current_user_top_tracks(limit=100, offset=0, time_range="long_term")
     else:
         print("Can't get token for", username)
 
