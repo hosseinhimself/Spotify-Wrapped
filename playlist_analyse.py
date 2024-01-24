@@ -11,7 +11,7 @@ def spotifyID(link):
     # https://open.spotify.com/playlist/3zCK80pE2XepeThGHfwUEz?si=8c637f1e7fde427f
     # https://open.spotify.com/playlist/5WwOvSn7sKdRFEFmmQV58W?si=a44bae5b88d94153
     link = link.replace("https://open.spotify.com/playlist/", "spotify:playlist:")
-    return link[:-20]
+    return link
 
 
 def playlist_analyse(link):
@@ -78,7 +78,7 @@ def playlist_analyse(link):
          'tempo', 'duration_ms']]
 
     min_max_scaler = MinMaxScaler()
-    music_feature.loc[:] = min_max_scaler.fit_transform(music_feature.loc[:])
+    music_feature.loc[:] = min_max_scaler.fit_transform(music_feature.copy().loc[:])
 
     fig = plt.figure(figsize=(12, 8))
 
@@ -97,3 +97,6 @@ def playlist_analyse(link):
     plt.yticks(color='grey', size=15)
     plt.show()
 
+
+if __name__ == '__main__':
+    playlist_analyse('https://open.spotify.com/playlist/5n862WPBVEHxD6Q3WrGgzK')
